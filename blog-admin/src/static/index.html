@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Blog - Controle do Direito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #6B46C1;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        p {
+            color: #6B7280;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: #F3F4F6;
+            color: #6B46C1;
+            border: 2px solid #6B46C1;
+        }
+
+        .btn-secondary:hover {
+            background: #6B46C1;
+            color: white;
+        }
+
+        .features {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #6B7280;
+        }
+
+        .feature i {
+            color: #10B981;
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-blog"></i>
+        </div>
+        <h1>Sistema de Blog</h1>
+        <p>Gerencie o blog do Controle do Direito de forma simples e intuitiva</p>
+        
+        <div>
+            <a href="admin.html" class="btn">
+                <i class="fas fa-cog"></i> Acessar Administração
+            </a>
+            <a href="../index.html" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Voltar ao Site
+            </a>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-plus"></i>
+                <span>Criar novos posts facilmente</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-edit"></i>
+                <span>Editar posts existentes</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-trash"></i>
+                <span>Remover posts indesejados</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-image"></i>
+                <span>Adicionar imagens aos posts</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

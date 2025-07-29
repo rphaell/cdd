@@ -1,0 +1,14 @@
+nohup: ignoring input
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/new_banner.png HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/logo.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/success-lawyer.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/office-modern.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/hero-lawyer.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /images/new_logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] code 404, message File not found
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [28/Jul/2025 20:01:24] code 404, message File not found
+127.0.0.1 - - [28/Jul/2025 20:01:24] "GET /sw.js HTTP/1.1" 404 -

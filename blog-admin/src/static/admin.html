@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração do Blog - Controle do Direito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6B46C1;
+            --primary-dark: #553C9A;
+            --primary-light: #8B5CF6;
+            --secondary-color: #EC4899;
+            --accent-color: #F59E0B;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-900: #111827;
+            --success: #10B981;
+            --danger: #EF4444;
+            --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+            --gradient-secondary: linear-gradient(135deg, #EC4899 0%, #F59E0B 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--gray-50);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-secondary {
+            background: var(--gray-300);
+            color: var(--text-dark);
+        }
+
+        .posts-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            background: var(--gray-50);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border: 2px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        .post-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .post-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .post-meta {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-content {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--gray-300);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .admin-nav {
+                flex-direction: column;
+            }
+
+            .post-actions {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-blog"></i> Administração do Blog</h1>
+            <p>Gerencie os posts do seu blog de forma simples e intuitiva</p>
+        </div>
+
+        <div class="admin-nav">
+            <button class="nav-btn active" onclick="showSection('create')">
+                <i class="fas fa-plus"></i> Novo Post
+            </button>
+            <button class="nav-btn" onclick="showSection('list')">
+                <i class="fas fa-list"></i> Listar Posts
+            </button>
+            <a href="../index.html" class="nav-btn">
+                <i class="fas fa-home"></i> Voltar ao Site
+            </a>
+        </div>
+
+        <div id="alerts"></div>
+
+        <!-- Seção Criar/Editar Post -->
+        <div id="create-section" class="section">
+            <h2 id="form-title"><i class="fas fa-plus"></i> Criar Novo Post</h2>
+            <form id="post-form">
+                <input type="hidden" id="post-id">
+                
+                <div class="form-group">
+                    <label for="title">Título do Post *</label>
+                    <input type="text" id="title" name="title" required placeholder="Digite o título do post">
+                </div>
+
+                <div class="form-group">
+                    <label for="image_url">URL da Imagem</label>
+                    <input type="url" id="image_url" name="image_url" placeholder="https://exemplo.com/imagem.jpg">
+                    <small style="color: var(--text-light); margin-top: 0.5rem; display: block;">
+                        Opcional: Cole aqui o link de uma imagem para ilustrar o post
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Conteúdo do Post *</label>
+                    <textarea id="content" name="content" required placeholder="Escreva o conteúdo do post aqui..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> <span id="submit-text">Publicar Post</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Seção Listar Posts -->
+        <div id="list-section" class="section hidden">
+            <h2><i class="fas fa-list"></i> Posts Publicados</h2>
+            <div id="posts-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Carregando posts...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+        let currentEditId = null;
+
+        // Mostrar seção específica
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            if (section === 'create') {
+                document.getElementById('create-section').classList.remove('hidden');
+                document.querySelector('[onclick="showSection(\'create\')"]').classList.add('active');
+            } else if (section === 'list') {
+                document.getElementById('list-section').classList.remove('hidden');
+                document.querySelector('[onclick="showSection(\'list\')"]').classList.add('active');
+                loadPosts();
+            }
+        }
+
+        // Mostrar alerta
+        function showAlert(message, type = 'success') {
+            const alertsContainer = document.getElementById('alerts');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
+            
+            alertsContainer.innerHTML = '';
+            alertsContainer.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        // Resetar formulário
+        function resetForm() {
+            document.getElementById('post-form').reset();
+            document.getElementById('post-id').value = '';
+            document.getElementById('form-title').innerHTML = '<i class="fas fa-plus"></i> Criar Novo Post';
+            document.getElementById('submit-text').textContent = 'Publicar Post';
+            currentEditId = null;
+        }
+
+        // Carregar posts
+        async function loadPosts() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Carregando posts...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/posts`);
+                const posts = await response.json();
+
+                if (posts.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Nenhum post encontrado</h3>
+                            <p>Comece criando seu primeiro post!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = `
+                    <div class="posts-grid">
+                        ${posts.map(post => `
+                            <div class="post-card">
+                                <h3>${post.title}</h3>
+                                <div class="post-meta">
+                                    <i class="fas fa-calendar"></i> 
+                                    Criado em: ${new Date(post.created_at).toLocaleDateString('pt-BR')}
+                                    ${post.updated_at !== post.created_at ? 
+                                        `<br><i class="fas fa-edit"></i> Atualizado em: ${new Date(post.updated_at).toLocaleDateString('pt-BR')}` 
+                                        : ''
+                                    }
+                                </div>
+                                ${post.image_url ? `<div style="margin-bottom: 1rem;"><img src="${post.image_url}" alt="${post.title}" style="max-width: 100%; height: 150px; object-fit: cover; border-radius: var(--border-radius);"></div>` : ''}
+                                <div class="post-content">
+                                    ${post.content.length > 200 ? post.content.substring(0, 200) + '...' : post.content}
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn" onclick="editPost(${post.id})">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </button>
+                                    <button class="btn btn-danger" onclick="deletePost(${post.id})">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="alert alert-error">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        Erro ao carregar posts: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Editar post
+        async function editPost(id) {
+            try {
+                const response = await fetch(`${API_BASE}/posts/${id}`);
+                const post = await response.json();
+
+                document.getElementById('post-id').value = post.id;
+                document.getElementById('title').value = post.title;
+                document.getElementById('content').value = post.content;
+                document.getElementById('image_url').value = post.image_url || '';
+                
+                document.getElementById('form-title').innerHTML = '<i class="fas fa-edit"></i> Editar Post';
+                document.getElementById('submit-text').textContent = 'Atualizar Post';
+                currentEditId = id;
+
+                showSection('create');
+                showAlert('Post carregado para edição', 'success');
+            } catch (error) {
+                showAlert('Erro ao carregar post para edição: ' + error.message, 'error');
+            }
+        }
+
+        // Deletar post
+        async function deletePost(id) {
+            if (!confirm('Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/posts/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    showAlert('Post excluído com sucesso!', 'success');
+                    loadPosts();
+                } else {
+                    throw new Error('Erro ao excluir post');
+                }
+            } catch (error) {
+                showAlert('Erro ao excluir post: ' + error.message, 'error');
+            }
+        }
+
+        // Submeter formulário
+        document.getElementById('post-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = {
+                title: formData.get('title'),
+                content: formData.get('content'),
+                image_url: formData.get('image_url') || ''
+            };
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Salvando...';
+            submitBtn.disabled = true;
+
+            try {
+                const url = currentEditId ? `${API_BASE}/posts/${currentEditId}` : `${API_BASE}/posts`;
+                const method = currentEditId ? 'PUT' : 'POST';
+
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const message = currentEditId ? 'Post atualizado com sucesso!' : 'Post criado com sucesso!';
+                    showAlert(message, 'success');
+                    resetForm();
+                    
+                    // Se estiver na aba de listagem, recarregar
+                    if (!document.getElementById('list-section').classList.contains('hidden')) {
+                        loadPosts();
+                    }
+                } else {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Erro ao salvar post');
+                }
+            } catch (error) {
+                showAlert('Erro ao salvar post: ' + error.message, 'error');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('create');
+        });
+    </script>
+</body>
+</html>
+
