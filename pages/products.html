@@ -547,43 +547,7 @@
             videoFrame.src = '';
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // FAQ Toggle
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.parentElement;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const icon = question.querySelector('i');
-                    
-                    // Close other open FAQs
-                    document.querySelectorAll('.faq-item').forEach(otherItem => {
-                        if (otherItem !== faqItem) {
-                            const otherAnswer = otherItem.querySelector('.faq-answer');
-                            const otherIcon = otherItem.querySelector('.faq-question i');
-                            
-                            if (otherAnswer && otherIcon) {
-                                otherItem.classList.remove('active');
-                                otherAnswer.style.maxHeight = '0';
-                                otherIcon.style.transform = 'rotate(0deg)';
-                            }
-                        }
-                    });
-                    
-                    // Toggle current FAQ
-                    if (faqItem && answer && icon) {
-                        faqItem.classList.toggle('active');
-                        
-                        if (faqItem.classList.contains('active')) {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
-                            icon.style.transform = 'rotate(180deg)';
-                        } else {
-                            answer.style.maxHeight = '0';
-                            icon.style.transform = 'rotate(0deg)';
-                        }
-                    }
-                });
-            });
-        });
+
 
         // Mini countdown
         function startMiniCountdown() {

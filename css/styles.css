@@ -488,12 +488,15 @@ h1, h2, h3, h4, h5, h6 {
     
 }
 
+.about-text {
+    align-items: center;
+}
+
 .about-stats {
-    display: flex;
+    display: flex;    
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin: 2rem 0;
-    
+    margin: 2rem 0;    
 }
 
 .stat-item {
@@ -2653,6 +2656,8 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 280px;
     }
 }
+
+
 
 @media (max-width: 480px) {
 
