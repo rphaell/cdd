@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
     font-size: 2.5rem;
-    text-align: left;
+    text-align: center;
     margin-bottom: 3rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -244,12 +244,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--white);
+    text-align: center;
 }
 
 .page-header p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    text-align: center;
+
 }
 
 .breadcrumb {
@@ -469,7 +472,7 @@ h1, h2, h3, h4, h5, h6 {
 /* About Preview Section */
 .about-preview {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .about-content {
@@ -526,7 +529,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Products Preview Section */
 .products-preview {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .products-grid {
@@ -546,6 +549,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid transparent;
 }
 
+
 .product-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-xl);
@@ -558,7 +562,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-badge {
-    position: absolute;
+   
     top: -10px;
     right: 20px;
     background: var(--gradient-secondary);
@@ -644,7 +648,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Testimonials Section */
 .testimonials {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .testimonials-grid {
@@ -752,7 +756,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Our Story Section */
 .our-story {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .story-content {
@@ -777,7 +781,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mission Vision Values */
 .mission-vision-values {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .mvv-grid {
@@ -857,7 +861,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Our Team Section */
 .our-team {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .team-grid {
@@ -2384,13 +2388,19 @@ h1, h2, h3, h4, h5, h6 {
     .section-title {
         font-size: 2rem;
     }
+
+    h2 {
+        font-size: 2rem;
+    }
     
     .hero-title {
         font-size: 2.5rem;
+        
     }
     
     .page-header h1 {
         font-size: 2.5rem;
+        
     }
     
     .about-stats {
@@ -2654,6 +2664,11 @@ h1, h2, h3, h4, h5, h6 {
     .mvv-card,
     .resource-card {
         padding: 1.5rem;
+        
+    }
+
+    .product-badge {
+        margin-bottom: 50px;
     }
     
     .contact-form-container {
@@ -3053,3 +3068,4 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+}
