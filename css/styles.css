@@ -89,12 +89,16 @@ h1, h2, h3, h4, h5, h6 {
 .header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: #26083c;
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    transition: none !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .header.scrolled {
@@ -651,6 +655,11 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--gray-200);
 }
 
+.testimonials-products {
+    margin-bottom: ;
+    background: var(--gray-200);
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1062,7 +1071,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Product Featured Section */
 .product-featured {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .product-hero {
@@ -1084,8 +1093,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.875rem;
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 1rem;
-    position: relative;
+    margin-bottom: 1rem;    
     z-index: 1;
 }
 
@@ -1245,7 +1253,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Course Details Section */
 .course-details {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .details-grid {
@@ -1348,7 +1356,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Other Products Section */
 .other-products {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .other-products .products-grid {
@@ -1424,7 +1432,7 @@ h1, h2, h3, h4, h5, h6 {
 .faq-section,
 .contact-faq {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .faq-grid {
@@ -1595,7 +1603,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Blog Coming Soon */
 .blog-coming-soon {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
     text-align: center;
 }
 
@@ -1778,7 +1786,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Alternative Resources */
 .alternative-resources {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-200);
 }
 
 .resources-grid {
@@ -1848,7 +1856,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Contact Section */
 .contact-section {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-200);
 }
 
 .contact-content {
@@ -2343,6 +2351,7 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 100%;
         box-sizing: border-box;
     }
+
     
     .nav-menu.active {
         left: 0;
@@ -2479,7 +2488,7 @@ h1, h2, h3, h4, h5, h6 {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 1rem;
+        font-size: 1.2rem;
         white-space: nowrap;
     }
     
@@ -2594,15 +2603,14 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     /* Fix product badge positioning on mobile */
-    .product-badge {
-        position: absolute;
+    .product-badge {        
         top: 15px;
         right: 15px;
         background: var(--gradient-secondary);
         color: var(--white);
         padding: 0.4rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.75rem;
+        border-radius: 25px;
+        font-size: 1rem;
         font-weight: 600;
         z-index: 10;
     }
@@ -2639,6 +2647,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
+
+    .product-badge {
+        margin-left: 15px;
+    }
     .container {
         padding: 0 15px;
     }
@@ -2767,7 +2779,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .logo-text {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     /* Footer improvements for mobile */
