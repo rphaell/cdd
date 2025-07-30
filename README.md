@@ -31,17 +31,6 @@ site-institucional/
 
 ## Funcionalidades Implementadas
 
-### ✅ Correções de Layout e Interface
-- FAQ funcional com respostas que abrem/fecham corretamente
-- Remoção da seção "Seja o primeiro a saber!" do menu do blog
-- Correção do bug do `product-badge` que sobrepunha o h2
-- Alinhamento correto do texto "Garantia de 7 dias" com o ícone
-- Centralização da seção "O que você vai aprender" em dispositivos móveis
-- Footer redesenhado com background igual ao header
-- Logo e texto centralizados no footer
-- Ano atualizado para 2025
-- Remoção de menções ao endereço físico (produto digital)
-- Link do WhatsApp atualizado para: https://wa.me/5597981379363
 
 ### ✅ Sistema CRUD para Blog
 - Interface de administração moderna e intuitiva
@@ -96,7 +85,11 @@ O sistema de blog utiliza Flask como backend. Para configurá-lo:
    cd blog-admin
    ```
 
-2. **Ative o ambiente virtual:**
+11. **Ative o ambiente virtual no WINDOWS:** 
+PS D:\meusprojetos\site-institucional\blog-admin> python -m venv venv
+PS D:\meusprojetos\site-institucional\blog-admin> source venv/bin/activate
+
+2. **Ative o ambiente virtual NO LINUX:**
    ```bash
    source venv/bin/activate
    ```
