@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
+    
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
@@ -476,7 +477,7 @@ h1, h2, h3, h4, h5, h6 {
 /* About Preview Section */
 .about-preview {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .about-content {
@@ -533,7 +534,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Products Preview Section */
 .products-preview {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .products-grid {
@@ -652,12 +653,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Testimonials Section */
 .testimonials {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .testimonials-products {
-    margin-bottom: ;
-    background: var(--gray-200);
+    
+    background: var(--gray-300);
 }
 
 .testimonials-grid {
@@ -765,7 +766,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Our Story Section */
 .our-story {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .story-content {
@@ -790,7 +791,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mission Vision Values */
 .mission-vision-values {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .mvv-grid {
@@ -870,7 +871,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Our Team Section */
 .our-team {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .team-grid {
@@ -963,6 +964,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
 }
 
+
+
+
+
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -990,6 +995,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+
+
 .achievement-label {
     font-size: 1rem;
     opacity: 0.9;
@@ -998,7 +1005,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Certifications Section */
 .certifications {
     padding: 6rem 0;
-    background: var(--gray-50);
+    background: var(--gray-300);
 }
 
 .certifications-content {
@@ -1071,7 +1078,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Product Featured Section */
 .product-featured {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .product-hero {
@@ -1253,7 +1260,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Course Details Section */
 .course-details {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .details-grid {
@@ -1356,7 +1363,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Other Products Section */
 .other-products {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .other-products .products-grid {
@@ -1432,7 +1439,7 @@ h1, h2, h3, h4, h5, h6 {
 .faq-section,
 .contact-faq {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .faq-grid {
@@ -1603,7 +1610,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Blog Coming Soon */
 .blog-coming-soon {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
     text-align: center;
 }
 
@@ -1772,6 +1779,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
+    width: 150px;
 }
 
 .social-link:hover {
@@ -1786,7 +1794,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Alternative Resources */
 .alternative-resources {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .resources-grid {
@@ -1856,7 +1864,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Contact Section */
 .contact-section {
     padding: 6rem 0;
-    background: var(--gray-200);
+    background: var(--gray-300);
 }
 
 .contact-content {
@@ -2752,10 +2760,11 @@ h1, h2, h3, h4, h5, h6 {
         height: 200px;
     }
     
-    .contact-method {
+    .contact-method, p {
         padding: 1rem;
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
     
     .method-icon {
@@ -2830,6 +2839,7 @@ h1, h2, h3, h4, h5, h6 {
     
     .curriculum-item i {
         margin-bottom: 0.5rem;
+        display: none;
     }
     
     .details-content h3 {
